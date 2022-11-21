@@ -1,0 +1,1 @@
+dotnet run -i task/test/kraevs/SecondBottom/test.json

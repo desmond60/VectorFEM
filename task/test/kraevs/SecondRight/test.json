@@ -1,0 +1,17 @@
+{
+    "Begin": [1, 1],
+    "End"  : [9, 9],
+    "Hx"   : 4,
+    "Hy"   : 4,
+    "Kx"   : 1,
+    "Ky"   : 1,
+
+    "N": 1,
+
+    "Sigma": [2, 1],
+    "Kraev": [1, 2, 1, 1],
+
+    "IsShowLos": false,
+    "IsShowGrid": false,
+    "IsShowSlau": false
+}
