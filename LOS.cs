@@ -40,7 +40,7 @@ public class LOS
 
         // Диагональное преобладание
         ComplexVector L = new ComplexVector(Enumerable.Range(0, slau.N).Select(i => new Complex(1, 0) / slau.di[i]).ToArray());
-        
+
         // Решение СЛАУ
         ComplexVector multX = slau.Mult(slau.q);
         for (int i = 0; i < r.Length; i++) {
@@ -50,6 +50,9 @@ public class LOS
         ComplexVector multZ = slau.Mult(z);
         for (int i = 0; i < p.Length; i++)
             p[i] = L[i] * multZ[i];
+
+        // Начальная невязка
+        double EPS_F = Norm(r);
 
          do {
             betta = Scalar(p, p);
@@ -69,7 +72,7 @@ public class LOS
             }
 
             // Невязка
-            Eps = Norm(Scalar(r, r));
+            Eps = Norm(r) / EPS_F;
 
             // Занесение данных в таблицу
             if (IsShowLos)

@@ -9,7 +9,7 @@
     "N": 2,
 
     "Sigma": [1, 1],
-    "Kraev": [1, 1, 2, 1],
+    "Kraev": [1, 1, 1, 1],
 
     "IsShowLos": false,
     "IsShowGrid": false,

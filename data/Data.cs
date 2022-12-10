@@ -68,7 +68,6 @@ public class Data
         int N_Y = Ky != 1
             ? (int)(Log(1 - (End[1] - Begin[1])*(Ky - 1) / (Hy*(-1))) / Log(Ky) + 2)
             : (int)Math.Ceiling(((End[1] - Begin[1]) / Hy + 1));
-
         if ( (N_Y - 1) != Sigma.Length)
             errorStr.Append($"Incorrect data: count segment by axis Y doesn't match count sigma!\n");
 

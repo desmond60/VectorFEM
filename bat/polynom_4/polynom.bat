@@ -1,0 +1,1 @@
+dotnet run -i task/test/polynom_4/test.json

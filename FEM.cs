@@ -25,7 +25,7 @@ public class FEM
     public void solve() {
         portrait();                                          //? Составление портрета матрицы
         global();                                            //? Составление глобальной матрицы
-        LOS los = new LOS(slau, 1e-15, 1000, Path);          //? LOS
+        LOS los = new LOS(slau, 1e-30, 1000, Path);          //? LOS
         slau.q = los.solve(IsShowLos);                       //? Решение СЛАУ
         AbsolutSolve();                                      //? Точное решение  
         if (IsShowSlau) WriteToSlau();                       //? Записать СЛАУ
@@ -300,12 +300,6 @@ public class FEM
             SubA[i] = q_abs[i] - q[i];
             SubA[i] = new Complex(Abs(SubA[i].Real), Abs(SubA[i].Imaginary));
         }
-        return (SubA, Helper.Norm(SubA));
+        return (SubA, Helper.Norm(SubA) / Helper.Norm(q_abs));
     }
-
-    
-
-    
-
-    
 }

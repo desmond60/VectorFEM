@@ -22,13 +22,19 @@ public static class Function
 
             // Полином второй степени
             case 2:
-                mu = 1;
+                mu = 2;
                 omega = 1;
             break;
 
             // Полином третьей стпени
             case 3:
-                mu = 1;
+                mu = 2;
+                omega = 1;
+            break;
+
+            // Полином четвертой степени
+            case 4:
+                mu = 2;
                 omega = 1;
             break;
 
@@ -81,6 +87,14 @@ public static class Function
                     'y' => new Complex(3*Pow(node.x, 3) - 2*Pow(node.y, 3), Pow(node.x, 3) + Pow(node.y, 3)),
                     _   => new Complex(0, 0)
                 };
+
+            // Полином четвертой степени
+            case 4:
+                return axe switch {
+                    'x' => new Complex(2*Pow(node.x, 4) + 3*Pow(node.y, 4), 6*Pow(node.x, 4) + 7*Pow(node.y, 4)),
+                    'y' => new Complex(3*Pow(node.x, 4) - 2*Pow(node.y, 4), Pow(node.x, 4) + Pow(node.y, 4)),
+                    _   => new Complex(0, 0)
+                };
             
             default: 
             return 0;
@@ -112,24 +126,32 @@ public static class Function
             // Разное местоположение второго краевого
             case 1:
                 return axe switch {
-                    'x' => new Complex(0, 0.5) + sigma_omega_A,
-                    'y' => new Complex(0, 0) + sigma_omega_A,
-                    _   => new Complex(0, 0) 
+                    'x' => 1/mu*new Complex(0, 1) + sigma_omega_A,
+                    'y' => 1/mu*new Complex(0, 0) + sigma_omega_A,
+                    _   => new Complex(0, 0)  
                 };
 
             // Полином второй степени
             case 2:
                 return axe switch {
-                    'x' => new Complex(-6, -14) + sigma_omega_A,
-                    'y' => new Complex(-6, -2) + sigma_omega_A,
+                    'x' => 1/mu*new Complex(-6, -14) + sigma_omega_A,
+                    'y' => 1/mu*new Complex(-6, -2) + sigma_omega_A,
                     _   => new Complex(0, 0)
                 };
 
-            // Полином второй степени
+            // Полином третьей степени
             case 3:
                 return axe switch {
-                    'x' => new Complex(-18*node.y, -42*node.y) + sigma_omega_A,
-                    'y' => new Complex(-18*node.x, -6*node.x) + sigma_omega_A,
+                    'x' => 1/mu*new Complex(-18*node.y, -42*node.y) + sigma_omega_A,
+                    'y' => 1/mu*new Complex(-18*node.x, -6*node.x) + sigma_omega_A,
+                    _   => new Complex(0, 0)
+                };
+
+            // Полином четвертой степени
+            case 4:
+                return axe switch {
+                    'x' => 1/mu*new Complex(-36*Pow(node.y, 2), -84*Pow(node.y, 2)) + sigma_omega_A,
+                    'y' => 1/mu*new Complex(-36*Pow(node.x, 2), -12*Pow(node.x, 2)) + sigma_omega_A,
                     _   => new Complex(0, 0)
                 };
 
