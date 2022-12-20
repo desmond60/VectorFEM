@@ -68,7 +68,7 @@ public static class Function
             case 1:
                 return axe switch {
                     'x' => new Complex(2*node.x + 3*node.y, 6*node.x + 7*node.y),
-                    'y' => new Complex(3*node.x - 2*node.y, node.x*node.y),
+                    'y' => new Complex(3*node.x - 2*node.y, node.x + node.y),
                     _   => new Complex(0, 0)
                 };
 
@@ -126,7 +126,7 @@ public static class Function
             // Разное местоположение второго краевого
             case 1:
                 return axe switch {
-                    'x' => 1/mu*new Complex(0, 1) + sigma_omega_A,
+                    'x' => 1/mu*new Complex(0, 0) + sigma_omega_A,
                     'y' => 1/mu*new Complex(0, 0) + sigma_omega_A,
                     _   => new Complex(0, 0)  
                 };

@@ -265,30 +265,29 @@ public class FEM
         (ComplexVector SubA, double Norma) = Norm(slau.q_abs, slau.q);
 
         sol.AddColumn(
-            ("A`", 30),         // Точное
-            ("A", 30),          // Решение МКЭ
-            ("|A` - A|", 30),   // Погрешность
-            ("||A` - A||", 20)  // Норма
+            ("A`", 26),         // Точное
+            ("A", 26),          // Решение МКЭ
+            ("|A` - A|", 25),   // Погрешность
+            ("||A` - A||", 11)  // Норма
         );
 
         sol.AddRow(
-            slau.q_abs[0].ToString("E4"),
-            slau.q[0].ToString("E4"),
-            SubA[0].ToString("E4"),
-            Norma.ToString("E4")
+            slau.q_abs[0].ToString("E3"),
+            slau.q[0].ToString("E3"),
+            SubA[0].ToString("E3"),
+            Norma.ToString("E3")
         );
         
         for (int i = 1; i < slau.q.Length; i++) {
             sol.AddRow(
-                slau.q_abs[i].ToString("E4"),
-                slau.q[i].ToString("E4"),
-                SubA[i].ToString("E4"),
+                slau.q_abs[i].ToString("E3"),
+                slau.q[i].ToString("E3"),
+                SubA[i].ToString("E3"),
                 "_"
             );
         }
 
         sol.WriteToFile(Path + "/solution.txt");
-        //sol.WriteToCSV("/solution.csv");
     }
 
     //: Расчет погрешности и нормы решения

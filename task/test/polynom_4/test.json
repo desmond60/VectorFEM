@@ -1,17 +1,17 @@
 {
     "Begin": [0, 0],
     "End"  : [1, 1],
-    "Hx"   : 0.5,
-    "Hy"   : 0.5,
+    "Hx"   : 0.0125,
+    "Hy"   : 0.05,
     "Kx"   : 1,
     "Ky"   : 1,
 
     "N": 4,
 
-    "Sigma": [1, 1],
+    "Sigma": [1, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 1, 2],
     "Kraev": [1, 1, 1, 1],
 
     "IsShowLos": false,
-    "IsShowGrid": false,
+    "IsShowGrid": true,
     "IsShowSlau": false
 }
